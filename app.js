@@ -1,7 +1,8 @@
 //REQUIRES
-var express = require( 'express' );
+var express = require( 'express' ); //require subdirectories always get index.js
 var morgan = require('morgan'); //cool
 var swig = require('swig'); 
+var routes = require('./routes/'); //file path internal
 
 //swig stuff
 
@@ -14,6 +15,7 @@ swig.setDefaults({cache: false}); //gets in way for development
 //APP Uses
 var app = express();
 app.use(morgan('dev'));
+app.use('/', routes); //gets index.js exports, registers as middleware
 
 app.engine('html', swig.renderFile);
 app.set('view engine', 'html'); //default view engine to html
@@ -22,6 +24,7 @@ app.set('views', __dirname + '/views'); //our view folder, dirname is safe
 
 //test data
 var people = [{name: 'Full'}, {name: 'Stacker'}, {name: 'Son'}];
+
 
 //sends to express view engine, we defined as swig
  
