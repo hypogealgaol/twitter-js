@@ -28,7 +28,7 @@ DELETE: delete the resource
 //---------------
 //random tweet generating
 //----------------
-/*
+
 var randArrayEl = function(arr) {
   return arr[Math.floor(Math.random() * arr.length)];
 };
@@ -48,4 +48,4 @@ for(var i=0; i<10; i++) {
   module.exports.add( getFakeName(), getFakeTweet() );
 
 }
-*/ 
+

@@ -3,7 +3,7 @@
 {% block content %}
   
   <div class="page-header">
-    <h1>Welcome to Twitter.js, Nimit!</h1>
+    <h1>Welcome to Twitter.js, Sinjihn!</h1>
   </div>
   <div class="row">
     <div class="col-md-3">
@@ -15,7 +15,12 @@
     
       <!-- display tweets here -->
       {% for tweet in tweets %}
-        <li>{{tweet.text}}</li>
+      <div class=tweetbox>
+      	<!-- this will look stupid for now --> 
+      		 <p>{{tweet.name}}</p> <!-- just get var component with . notation --> 
+       		 <li>{{tweet.text}}</li>
+
+   	   </div>
       {% endfor %}
       
     </div>
