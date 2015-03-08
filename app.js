@@ -5,9 +5,6 @@ var swig = require('swig');
 
 //swig stuff
 
-app.engine('html', swig.renderFile);
-app.set('view engine', 'html'); //default view engine to html
-app.set('views', __dirname + '/views'); //our view folder, dirname is safe
 
 
 //Caching a view saves the rendered document and only re-renders it if the data has actually changed
@@ -18,16 +15,22 @@ swig.setDefaults({cache: false}); //gets in way for development
 var app = express();
 app.use(morgan('dev'));
 
+app.engine('html', swig.renderFile);
+app.set('view engine', 'html'); //default view engine to html
+app.set('views', __dirname + '/views'); //our view folder, dirname is safe
+
+
 //test data
 var people = [{name: 'Full'}, {name: 'Stacker'}, {name: 'Son'}];
 
 //sends to express view engine, we defined as swig
-res.render( 'index', {title: 'Hall of Fame', people: people} ); 
+ 
 
 
 //Gets / Server Handling
 app.get('/', function (req, res) {
-  res.send('Hello World!')
+	res.render( 'index', {title: 'Hall of Fame', people: people} );
+  	//res.send('Hello World!')
 })
 
 app.get('/news', function (req, res) {
