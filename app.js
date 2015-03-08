@@ -12,6 +12,10 @@ app.get('/', function (req, res) {
   res.send('Hello World!')
 })
 
+app.get('/news', function (req, res) {
+  res.send('Everything is terrible!')
+})
+
 var server = app.listen(3000, function () {
 
   var host = server.address().address
