@@ -1,2 +1,2 @@
 # twitter-js
-twitter js for cubackend
+twitter-js for cubackend js
