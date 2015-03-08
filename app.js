@@ -17,6 +17,14 @@ var app = express();
 app.use(morgan('dev'));
 app.use('/', routes); //gets index.js exports, registers as middleware
 
+/* The express.static() method takes a root directory parameter and returns a middleware function. 
+Like with Morgan, we pass this middleware to app.use() to intercept all requests. 
+It checks if a request URI path matches a filepath in the public directory; if so, it sends that file back as-is.
+*/
+app.use(express.static(__dirname+'/public')); //allows designation of folders to serve static content
+
+
+//Set
 app.engine('html', swig.renderFile);
 app.set('view engine', 'html'); //default view engine to html
 app.set('views', __dirname + '/views'); //our view folder, dirname is safe
