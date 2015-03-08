@@ -1,6 +1,6 @@
 //REQUIRES
 var express = require( 'express' );
-var morgan = require('morgan');
+var morgan = require('morgan'); //cool
 
 //APP
 var app = express();
